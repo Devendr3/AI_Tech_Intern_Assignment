@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>To-Do Manager</title>
+</head>
+<body>
+  <h2>To-Do Manager</h2>
+  <form action="/add" method="POST">
+    <input type="text" name="task" placeholder="Enter task" required />
+    <button type="submit">Add</button>
+  </form>
+  <h3>Your Tasks:</h3>
+  <ul>
+    {% for id, task in tasks %}
+      <li>{{task}} <a href="/delete/{{id}}">Delete</a></li>
+    {% endfor %}
+  </ul>
+  <h3>AI Suggested Task:</h3>
+  <button onclick="getTask()">Get Suggestion</button>
+  <p id="suggestion"></p>
+
+  <script>
+    async function getTask() {
+      let res = await fetch("/suggest");
+      let data = await res.text();
+      document.getElementById("suggestion").innerText = data;
+    }
+  </script>
+</body>
+</html>
