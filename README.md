@@ -19,7 +19,6 @@ This repo contains both assignment tasks for the internship screening.
 ## How to Run
 Each task has its own folder (`Task1_Chatbot`, `Task2_TodoApp`) with:
 - Code
-- `requirements.txt`
 - README with setup instructions
 
 ## Submission
